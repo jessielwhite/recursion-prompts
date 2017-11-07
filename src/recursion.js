@@ -60,14 +60,6 @@ var range = function(x, y) {
     y = y > x ? y - 1 : y + 1;
   }
   return y === x ? [] : range(x, y).concat(y);
-    
-    // if (x !== 0 && y !== 0) {
-    //     return range(x - 1, y - 1).concat(x, y);
-    // } else if (x !== 0 && y !== 0) {
-    //     return range(x + 1, y + 1).concat(x, y);
-    // } else {
-    //     return [];
-    // }
 };
 
 // 7. Compute the exponent of a number.
@@ -153,6 +145,14 @@ var multiply = function(x, y) {
     }
 };
 
+// 25 / 5 = 5
+
+// return 1 + divide(25 - 5, 5) === return 1 + divide(20, 5)
+// return 1 + divide(20 - 5, 5) === return 1 + divide(15, 5)
+// return 1 + divide(15 - 5, 5) === return 1 + divide(10, 5)
+// return 1 + divide(10 - 5, 5) === return 1 + divide(5, 5)
+// return 1 + divide(5 - 5, 5) === return 1 + divide(0, 5)
+
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
 var divide = function(x, y) {
@@ -169,6 +169,7 @@ var divide = function(x, y) {
     } else if (x - y < y) {
         return 1;
     }
+
     return 1 + divide(x - y, y);
 };
 
@@ -199,14 +200,6 @@ var compareStr = function(str1, str2) {
         return false;
     }
     return compareStr(str1.substr(1), str2.substr(1));
-    
-    // if (str1.split()[0] === str2.split()[0]) {
-    //     str1 = str1.split().slice(1).join();
-    //     str2 = str2.split().slice(1).join();
-    //     return compareStr(str1, str2);
-    // } else {
-    //     return false;
-    // }
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
@@ -251,8 +244,7 @@ var rMap = function(array, callback, result = [], i = 0) {
 // var rMap = function (array, callback) {
 //     if (array.length === 1) {
 //         return callback(array);
-//     }
-//     else {
+//     } else {
 //         return [callback(array[0])].concat(rMap(array.slice(1), callback));
 //     }
 // };
@@ -538,7 +530,7 @@ var binarySearch = function(array, target, newArr = []) {
 
 // 38. Write a merge sort function.
 // Sample array:  [34,7,23,32,5,62]
-// Sample output: [5,7,23,32,34,62]
+// Sample output: [5,7,23,32,34,6)2]
 var merge = function(leftArr, rightArr) {
     var result = [];
     var indexL = 0;
